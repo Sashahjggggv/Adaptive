@@ -1,0 +1,212 @@
+@import '_nullstyle.scss';
+@import '_fonts.scss';
+
+.wrapper {
+	overflow: hidden;
+	min-width: 100%;
+	min-height: 100%;
+}
+.page {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+body.no-scroll{overflow: hidden;}
+.header {
+	position: absolute;
+	z-index: 50;
+	top: 35px;
+	left: 0;
+	width: 100%;
+	transition: 0.4s;
+
+	&__row {
+		display: flex;
+		justify-content: center;
+	}
+
+	// &__menu {
+	// }
+
+	@media (max-width: 767px) {
+		height: 100%;
+		top: -100%;
+		padding-top: 35px;
+		background: rgba(77, 73, 89, 0.7);
+		&__row{align-items: center;}
+	}
+}
+.header.active{
+	top: 0;
+	position: fixed;
+}
+.menu {
+	position: relative;
+	width: 620px;
+
+	&__body{
+		@media (min-width: 768px){
+			height: 85px;
+		}
+	}
+
+	&__row {
+		display: flex;
+		align-items: center;
+		flex: 0 0 620px;
+		height: 100%;
+		justify-content: space-between;
+	}
+
+	&__element {
+		position: relative;
+		a {
+			cursor: pointer;
+			color: #4d4959;
+			font-family: 'Lato', sans-serif;
+			font-weight: 700;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+		padding: 0 70px;
+		&:first-child{padding: 0;}
+		&:last-child{padding-right: 0;}
+		&::before{
+			content: '';
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			background: #4d4959;
+			position: absolute;
+			top: 50%;
+			left: 33px;
+			margin-top: -1px;
+		}
+		&:first-child::before{
+			content: '';
+			display: none;
+		}
+	}
+	@media (max-width: 767px) {
+		width: auto;
+		top: 42px;
+		&__column{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		&__element {
+			&_burger-dot::before{
+				top: -50%;
+				left: 33px;
+				margin-top: -1px;
+				display: block !important;
+			}
+			padding: 100px 0 0 0 !important;
+			&::before{
+				top: 48px;
+				left: 50%;
+				margin-left: -2px;
+			}
+		}
+		&__element a{color: #fff;}
+		&__element::before{background: #fff;}
+		&__row{flex-direction: column;}
+	}
+}
+
+// зробити ще одне псевдо меню, яке перекриває попереднє
+
+.container {
+	width: 1100px;
+}
+.content {
+	&__text-new-generation {
+		flex: 0 0 469px;
+	}
+
+	// &__vintage-olivia {
+	// }
+
+	// &__la-boriosa {
+	// }
+
+	// &__retro-bike {
+	// }
+
+	// &__twitter {
+	// }
+
+	// &__photos {
+	// }
+
+	// &__btn-discover {
+	// }
+
+	// &__email {
+	// }
+
+	// &__footer {
+	// }
+}
+
+.burger-menu.active{
+	height: 30px;
+	>:first-child{
+		transform: rotate(45deg);
+		position: relative;
+		top: 6.3px;
+		margin: 0;
+	}
+	>:nth-child(2){
+		scale: 0;
+	}
+	>:last-child{
+		transform: rotate(-45deg);
+		position: relative;
+		bottom: 2.3px;
+	}
+}
+
+.main-screen{
+	flex: 1 0 100%;
+	background: url('../image/header-bg.png') center / cover no-repeat;
+	&__logo {
+		position: absolute;
+		top: 35px;
+		left: 50%;
+		z-index: 100;
+		margin-left: -47px;
+	}
+
+	&__burger {
+		display: none;
+	}
+	@media (max-width: 767px) {
+		&__burger {
+			display: block;
+			position: fixed;
+			top: 73px;
+			right: 50px;
+			z-index: 51;
+			width: 30px;
+			height: 20px;
+			cursor: pointer;
+		}
+		&__burger-line{
+			height: 2.2px;
+			color: #4d4959;
+			background: #64c29e;
+			border-radius: 2px;
+			margin-bottom: 5px;
+			transition: 0.2s;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+}
