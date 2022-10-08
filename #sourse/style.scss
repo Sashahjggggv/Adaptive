@@ -33,7 +33,6 @@ body.no-scroll{overflow: hidden;}
 	// }
 
 	@media (max-width: 767px) {
-		scale: 0;
 		height: 100%;
 		top: -150%;
 		padding-top: 35px;
@@ -44,7 +43,6 @@ body.no-scroll{overflow: hidden;}
 .header.active{
 	top: 0;
 	position: fixed;
-	scale: 1;
 }
 .menu {
 	position: relative;
