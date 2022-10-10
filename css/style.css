@@ -108,7 +108,7 @@ body.no-scroll {
   .header {
     height: 100%;
     top: -150%;
-    padding-top: 35px;
+    padding-top: 20px;
     background: rgba(77, 73, 89, 0.7);
   }
   .header__row {
@@ -136,6 +136,9 @@ body.no-scroll {
   flex: 0 0 620px;
   height: 100%;
   justify-content: space-between;
+}
+.menu__item {
+  display: none;
 }
 .menu__element {
   position: relative;
@@ -173,21 +176,18 @@ body.no-scroll {
 @media (max-width: 767px) {
   .menu {
     width: auto;
-    top: 42px;
+    top: 0;
   }
   .menu__column {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .menu__element {
-    padding: 100px 0 0 0 !important;
+  .menu__item {
+    display: block;
   }
-  .menu__element_burger-dot::before {
-    top: -50%;
-    left: 33px;
-    margin-top: -1px;
-    display: block !important;
+  .menu__element {
+    padding: 100px 0 0 0;
   }
   .menu__element::before {
     top: 48px;
@@ -205,12 +205,45 @@ body.no-scroll {
   }
 }
 
-.container {
-  width: 1100px;
+.main-screen {
+  flex: 1 0 100%;
+  background: url("../image/header-bg.png") center/cover no-repeat;
 }
-
-.content__text-new-generation {
-  flex: 0 0 469px;
+.main-screen__logo {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  z-index: 100;
+  margin-left: -47px;
+}
+.main-screen__burger {
+  display: none;
+}
+@media (max-width: 767px) {
+  .main-screen__burger {
+    display: block;
+    position: fixed;
+    top: 58px;
+    right: 40px;
+    z-index: 51;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .main-screen__logo {
+    top: 20px;
+  }
+  .main-screen__burger-line {
+    height: 2.2px;
+    color: #4d4959;
+    background: #64c29e;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    transition: 0.2s;
+  }
+  .main-screen__burger-line:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .burger-menu.active {
@@ -231,40 +264,135 @@ body.no-scroll {
   bottom: 2.3px;
 }
 
-.main-screen {
-  flex: 1 0 100%;
-  background: url("../image/header-bg.png") center/cover no-repeat;
+.block-text {
+  padding: 72px 0;
 }
-.main-screen__logo {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  z-index: 100;
-  margin-left: -47px;
+.block-text__container {
+  text-align: center;
+  padding: 50px 67px;
 }
-.main-screen__burger {
-  display: none;
+.block-text__container_max-width {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.block-text__icon {
+  margin-bottom: 25px;
+}
+.block-text__title {
+  margin-bottom: 19px;
+  color: #353738;
+  font-family: "Lato", sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 28px;
+}
+.block-text__paragraf {
+  color: #848789;
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  line-height: 34px;
+}
+@media (max-width: 1000px) {
+  .block-text {
+    padding: 80px 0 100px;
+  }
 }
 @media (max-width: 767px) {
-  .main-screen__burger {
-    display: block;
-    position: fixed;
-    top: 58px;
-    right: 40px;
-    z-index: 51;
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
+  .block-text {
+    padding: 50px 0 65px;
   }
-  .main-screen__burger-line {
-    height: 2.2px;
-    color: #4d4959;
-    background: #64c29e;
-    border-radius: 2px;
-    margin-bottom: 5px;
-    transition: 0.2s;
+  .block-text__icon {
+    margin-bottom: 25px;
   }
-  .main-screen__burger-line:last-child {
-    margin-bottom: 0;
+  .block-text__title {
+    letter-spacing: 2px;
+    margin-bottom: 20px;
   }
+  .block-text__paragraf {
+    line-height: 23px;
+    font-size: 14px;
+  }
+}
+
+.cards > div {
+  display: flex;
+}
+
+.background-img {
+  background: center/cover no-repeat;
+  position: relative;
+}
+.background-img_vintage-olivia {
+  background-image: url(../image/vintage-olivia.png);
+  width: 66.667%;
+}
+.background-img_la-boriosa {
+  background-image: url(../image/la-boriosa.png);
+  width: 66.667%;
+}
+.background-img_retro-bike-first {
+  background-image: url(../image/retro-bike-first.png);
+  width: 33.333%;
+}
+.background-img_retro-bike-second {
+  background-image: url(../image/retro-bike-second.png);
+  width: 33.333%;
+}
+.background-img__logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(100, 194, 158, 0.5);
+  opacity: 0;
+  visibility: hidden;
+}
+.background-img__logo:hover {
+  opacity: 1;
+  visibility: visible;
+}
+.background-img:hover__logo {
+  opacity: 1;
+  visibility: visible;
+}
+
+.text-img {
+  width: 33.333%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.text-img__block-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.text-img__after::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  margin: 30px auto 0;
+  background: #dbdbdb;
+}
+.text-img__background-img {
+  padding: 0 0 37.502% 0;
+  background: center/cover no-repeat;
+}
+.text-img__background-img_vintage-olivia {
+  background-image: url(../image/vintage-olivia-mini-background.png);
+}
+.text-img__background-img_la-boriosa {
+  background-image: url(../image/la-boriosa-mini-background.png);
+}
+.text-img__background-img_retro-bike {
+  background-image: url(../image/retro-bike-mini-background.png);
 }
